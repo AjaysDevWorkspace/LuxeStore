@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuxeStore - Premium E-commerce Experience</title>
+    <meta name="description"
+        content="The most advanced e-commerce platform with premium products and exceptional user experience">
+
+    <!-- Semantic HTML5 structure with comprehensive accessibility -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="enhanced-responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="./assets/luxe_icon.png" type="image/x-icon">
+
+    <!-- Modern icons from Lucide -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+
+<body>
+    <!-- SEMANTIC HEADER: Top branding area with logo, main navigation, and user controls -->
+    <header class="header" role="banner">
+        <div class="container">
+            <div class="header__content">
+                <!-- Logo and brand identity -->
+                <div class="header__logo">
+                    <h1><a href="#" aria-label="LuxeStore Homepage">LuxeStore</a></h1>
+                </div>
+
+                <!-- PRIMARY NAVIGATION: Main site navigation -->
+                <nav class="header__nav" role="navigation" aria-label="Main navigation">
+                    <ul class="nav-list">
+                        <li><a href="#home" class="nav-link">Home</a></li>
+                        <li><a href="#categories" class="nav-link">Categories</a></li>
+                        <li><a href="#products" class="nav-link">Products</a></li>
+                        <li><a href="#deals" class="nav-link">Deals</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Advanced search with real-time functionality -->
+                <div class="header__search" role="search">
+                    <div class="search-container">
+                        <input type="search" class="search-input form-control" placeholder="Search products..."
+                            aria-label="Search products" autocomplete="off" id="searchInput">
+                        <button class="search-btn btn--primary" aria-label="Search">
+                            <i data-lucide="search"></i>
+                        </button>
+                        <div class="search-suggestions" id="searchSuggestions" aria-hidden="true"></div>
+                    </div>
+                </div>
+
+                <!-- User controls and cart -->
+                <div class="header__actions">
+                    <button class="theme-toggle btn--outline" aria-label="Toggle dark mode" id="themeToggle">
+                        <i data-lucide="sun" class="theme-icon light-icon"></i>
+                        <i data-lucide="moon" class="theme-icon dark-icon"></i>
+                    </button>
+
+                    <button class="user-account btn--outline" aria-label="User account">
+                        <i data-lucide="user"></i>
+                    </button>
+
+                    <button class="cart-toggle btn--primary" aria-label="Shopping cart" id="cartToggle">
+                        <i data-lucide="shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </button>
+
+                    <button class="mobile-menu-toggle btn--outline" aria-label="Toggle mobile menu"
+                        id="mobileMenuToggle">
+                        <i data-lucide="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT: All primary content sections -->
+    <main class="main-content" role="main">
+
+        <!-- HERO SECTION: Immersive full-screen banner with parallax and CTA -->
+        <section class="hero" id="home" aria-labelledby="hero-title">
+            <div class="hero__background">
+                <div class="hero__content container">
+                    <div class="hero__text">
+                        <h2 id="hero-title" class="hero__title">
+                            Discover Premium Products
+                            <span class="hero__title-accent">Crafted for Excellence</span>
+                        </h2>
+                        <p class="hero__description">
+                            Experience luxury shopping with curated collections, exceptional quality, and unmatched
+                            service. Elevate your lifestyle with our premium selection.
+                        </p>
+                        <div class="hero__actions">
+                            <button class="btn btn--primary btn--lg" id="shopNowBtn">
+                                Shop Collection
+                                <i data-lucide="arrow-right"></i>
+                            </button>
+                            <button class="btn btn--outline btn--lg" id="exploreBtn">
+                                Explore Categories
+                            </button>
+                        </div>
+                    </div>
+                    <div class="hero__visual">
+                        <div class="hero__image-container">
+                            <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8"
+                                alt="Premium shopping experience" class="hero__image">
+                            <div class="hero__floating-elements">
+                                <div class="floating-card">
+                                    <span class="floating-card__text">Premium Quality</span>
+                                </div>
+                                <div class="floating-card floating-card--accent">
+                                    <span class="floating-card__text">Fast Delivery</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATEGORIES SECTION: Product categories showcase -->
+        <section class="categories" id="categories" aria-labelledby="categories-title">
+            <div class="container">
+                <div class="section-header">
+                    <h2 id="categories-title" class="section-title">Shop by Category</h2>
+                    <p class="section-description">Discover our carefully curated collections</p>
+                </div>
+
+                <div class="categories__grid" id="categoriesGrid">
+                    <!-- Categories will be dynamically populated -->
+                </div>
+            </div>
+        </section>
+
+        <!-- PRODUCTS SECTION: Featured products with advanced filtering -->
+        <section class="products" id="products" aria-labelledby="products-title">
+            <div class="container">
+                <div class="section-header">
+                    <h2 id="products-title" class="section-title">Featured Products</h2>
+                    <p class="section-description">Premium selection of our best-selling items</p>
+                </div>
+
+                <!-- ADVANCED FILTERING CONTROLS -->
+                <div class="filters" role="group" aria-labelledby="filters-title">
+                    <h3 id="filters-title" class="sr-only">Product Filters</h3>
+
+                    <div class="filters__controls">
+                        <div class="filter-group">
+                            <label for="categoryFilter" class="filter-label">Category</label>
+                            <select id="categoryFilter" class="form-control filter-select">
+                                <option value="">All Categories</option>
+                                <option value="electronics">Electronics</option>
+                                <option value="fashion">Fashion</option>
+                                <option value="home">Home & Living</option>
+                            </select>
+                        </div>
+
+                        <div class="filter-group">
+                            <label for="sortFilter" class="filter-label">Sort by</label>
+                            <select id="sortFilter" class="form-control filter-select">
+                                <option value="featured">Featured</option>
+                                <option value="price-low">Price: Low to High</option>
+                                <option value="price-high">Price: High to Low</option>
+                                <option value="rating">Highest Rated</option>
+                                <option value="newest">Newest</option>
+                            </select>
+                        </div>
+
+                        <div class="filter-group">
+                            <label for="priceRange" class="filter-label">Price Range</label>
+                            <div class="price-range">
+                                <input type="range" id="priceRange" min="0" max="500" value="500" class="price-slider">
+                                <span class="price-display">$0 - $<span id="priceValue">500</span></span>
+                            </div>
+                        </div>
+
+                        <button class="btn btn--outline" id="clearFilters">
+                            Clear Filters
+                            <i data-lucide="x"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- PRODUCTS GRID: Responsive masonry layout -->
+                <div class="products__grid" id="productsGrid">
+                    <!-- Products will be dynamically populated -->
+                </div>
+
+                <div class="products__loading" id="productsLoading">
+                    <div class="loading-spinner"></div>
+                    <p>Loading amazing products...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS SECTION: Customer reviews and social proof -->
+        <section class="testimonials" aria-labelledby="testimonials-title">
+            <div class="container">
+                <div class="section-header">
+                    <h2 id="testimonials-title" class="section-title">What Our Customers Say</h2>
+                    <p class="section-description">Real experiences from our valued customers</p>
+                </div>
+
+                <div class="testimonials__grid" id="testimonialsGrid">
+                    <!-- Testimonials will be dynamically populated -->
+                </div>
+            </div>
+        </section>
+
+        <!-- NEWSLETTER SECTION: Email subscription -->
+        <section class="newsletter" aria-labelledby="newsletter-title">
+            <div class="container">
+                <div class="newsletter__content">
+                    <div class="newsletter__text">
+                        <h2 id="newsletter-title" class="newsletter__title">Stay Updated</h2>
+                        <p class="newsletter__description">Get the latest deals and exclusive offers delivered to your
+                            inbox</p>
+                    </div>
+                    <form class="newsletter__form" id="newsletterForm" novalidate>
+                        <div class="newsletter__input-group">
+                            <input type="email" class="form-control newsletter__input"
+                                placeholder="Enter your email address" aria-label="Email address" required
+                                id="newsletterEmail">
+                            <button type="submit" class="btn btn--primary newsletter__btn">
+                                Subscribe
+                                <i data-lucide="mail"></i>
+                            </button>
+                        </div>
+                        <div class="newsletter__feedback" id="newsletterFeedback" aria-live="polite"></div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- SHOPPING CART SIDEBAR: Interactive cart with slide-out functionality -->
+    <aside class="cart-sidebar" id="cartSidebar" role="complementary" aria-labelledby="cart-title">
+        <div class="cart-sidebar__content">
+            <div class="cart-sidebar__header">
+                <h2 id="cart-title" class="cart-sidebar__title">Shopping Cart</h2>
+                <button class="cart-sidebar__close btn--outline" aria-label="Close cart" id="cartClose">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+
+            <div class="cart-sidebar__body">
+                <div class="cart-items" id="cartItems">
+                    <!-- Cart items will be dynamically populated -->
+                </div>
+
+                <div class="cart-empty" id="cartEmpty">
+                    <div class="cart-empty__content">
+                        <i data-lucide="shopping-cart" class="cart-empty__icon"></i>
+                        <h3 class="cart-empty__title">Your cart is empty</h3>
+                        <p class="cart-empty__text">Add some products to get started</p>
+                        <button class="btn btn--primary" id="startShoppingBtn">Start Shopping</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cart-sidebar__footer" id="cartFooter">
+                <div class="cart-summary">
+                    <div class="cart-summary__row">
+                        <span>Subtotal:</span>
+                        <span class="cart-subtotal" id="cartSubtotal">$0.00</span>
+                    </div>
+                    <div class="cart-summary__row">
+                        <span>Shipping:</span>
+                        <span class="cart-shipping">Free</span>
+                    </div>
+                    <div class="cart-summary__row cart-summary__total">
+                        <span>Total:</span>
+                        <span class="cart-total" id="cartTotal">$0.00</span>
+                    </div>
+                </div>
+
+                <div class="cart-actions">
+                    <button class="btn btn--outline btn--full-width" id="viewCartBtn">View Cart</button>
+                    <button class="btn btn--primary btn--full-width" id="checkoutBtn">
+                        Secure Checkout
+                        <i data-lucide="lock"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="cart-sidebar__backdrop" id="cartBackdrop"></div>
+    </aside>
+
+    <!-- PRODUCT DETAIL MODAL: Detailed product view with image gallery -->
+    <div class="modal product-modal" id="productModal" role="dialog" aria-labelledby="product-modal-title"
+        aria-hidden="true">
+        <div class="modal__backdrop" id="productModalBackdrop"></div>
+        <div class="modal__content">
+            <div class="modal__header">
+                <h2 id="product-modal-title" class="modal__title">Product Details</h2>
+                <button class="modal__close btn--outline" aria-label="Close product details" id="productModalClose">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+
+            <div class="modal__body" id="productModalBody">
+                <!-- Product details will be dynamically populated -->
+            </div>
+        </div>
+    </div>
+
+    <!-- SEMANTIC FOOTER: Comprehensive site footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__section footer__brand">
+                    <h3 class="footer__title">LuxeStore</h3>
+                    <p class="footer__description">
+                        Your premier destination for luxury products and exceptional shopping experiences.
+                    </p>
+                    <div class="footer__social">
+                        <a href="#" class="social-link" aria-label="Follow us on Facebook">
+                            <i data-lucide="facebook"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Follow us on Twitter">
+                            <i data-lucide="twitter"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Follow us on Instagram">
+                            <i data-lucide="instagram"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Follow us on LinkedIn">
+                            <i data-lucide="linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer__section">
+                    <h4 class="footer__section-title">Shop</h4>
+                    <ul class="footer__links">
+                        <li><a href="#" class="footer__link">Electronics</a></li>
+                        <li><a href="#" class="footer__link">Fashion</a></li>
+                        <li><a href="#" class="footer__link">Home & Living</a></li>
+                        <li><a href="#" class="footer__link">Sale Items</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__section">
+                    <h4 class="footer__section-title">Customer Service</h4>
+                    <ul class="footer__links">
+                        <li><a href="#" class="footer__link">Contact Us</a></li>
+                        <li><a href="#" class="footer__link">Shipping Info</a></li>
+                        <li><a href="#" class="footer__link">Returns</a></li>
+                        <li><a href="#" class="footer__link">Size Guide</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__section">
+                    <h4 class="footer__section-title">Company</h4>
+                    <ul class="footer__links">
+                        <li><a href="#" class="footer__link">About Us</a></li>
+                        <li><a href="#" class="footer__link">Careers</a></li>
+                        <li><a href="#" class="footer__link">Press</a></li>
+                        <li><a href="#" class="footer__link">Sustainability</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <div class="footer__legal">
+                    <p>&copy; 2025 LuxeStore. All rights reserved.</p>
+                    <div class="footer__legal-links">
+                        <a href="#" class="footer__link">Privacy Policy</a>
+                        <a href="#" class="footer__link">Terms of Service</a>
+                        <a href="#" class="footer__link">Cookie Policy</a>
+                    </div>
+                </div>
+
+                <div class="footer__payment">
+                    <p class="footer__payment-text">Secure payments powered by:</p>
+                    <div class="payment-methods">
+                        <span class="payment-method">Stripe</span>
+                        <span class="payment-method">PayPal</span>
+                        <span class="payment-method">Apple Pay</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for advanced functionality -->
+    <script src="./script.js"></script>
+    <script src="enhanced-mobile.js"></script>
+    <script>
+        // Initialize Lucide icons after DOM is loaded
+        document.addEventListener('DOMContentLoaded', function () {
+            lucide.createIcons();
+        });
+    </script>
+</body>
+
+</html>

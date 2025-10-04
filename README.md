@@ -29,7 +29,7 @@
   <ul>
     <li><em>Desktop view</em>: <img src="https://i.ibb.co/4RkwDDbL/Screenshot-2025-10-04-at-12-16-48-PM.png" alt="Desktop Screenshot"></li>
     <li><em>Tablet view</em>: <img src="https://i.ibb.co/Z6q2Bk8D/Screenshot-2025-10-04-at-12-18-10-PM.png" alt="Tablet Screenshot"></li>
-    <li><em>Mobile view</em>: <img src="https://i.ibb.co/LhgpBPr7/Screenshot-2025-10-04-at-12-22-22-PM.png" alt="Mobile Screenshot"></li>
+    <li><em>Mobile view</em><br>: <img src="https://i.ibb.co/LhgpBPr7/Screenshot-2025-10-04-at-12-22-22-PM.png" alt="Mobile Screenshot"></li>
   </ul>
 
   <hr style="margin: 2rem 0;">
